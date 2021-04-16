@@ -1,0 +1,18 @@
+uthor: John Ballen
+# Date Created:04-16-2021
+# Description: The scrpt run basic admin commands
+# Date Modified: 04-16-2021
+
+p=pwd
+l=ls
+wi=whoami
+d=date
+c='cal 2022'
+
+echo Run variables tasks
+echo
+$p
+$l
+$wi
+$d
+$c
