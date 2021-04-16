@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: 
+# Date Modified: 04-16-2021
+
+echo
+echo 'This script will run a few basic tasks'
+echo
+pwd
+echo
+ls -lrt
+echo
+whoami
+echo
+date
+echo
+cal
+echo
+touch a b c
+echo
+echo 'End of the script'
