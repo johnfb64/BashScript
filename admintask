@@ -1,0 +1,20 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: The scrpt run basic admin commands
+# Date Modified: 04-16-2021
+echo
+echo This cript will run basic administrative commands
+echo
+#Piped top, only show the ten line.
+top
+echo
+df -h
+echo
+free -m
+echo
+uptime
+echo
+iostat
+echo 
+echo End of Script
