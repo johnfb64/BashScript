@@ -1,0 +1,25 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: This script will ping a remote host and notify 
+# Date Modified: 04-19-2021
+
+# change this line for your file location
+hosts="/home/john/GIT/BashScript/Connectivity/myhosts/hosts"
+# Dev null is a null file, so that there aren't a ping output
+
+#IP is the new container
+for ip in $(cat $hosts)
+
+do
+
+	ping -c1 $ip &> /dev/null
+	#$? = the output status of the command, like ping. 
+	if [ $? -eq 0 ]
+	then
+	echo $ip OK.
+	else
+	echo $ip NOT OK.
+	fi
+done
+
