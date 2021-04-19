@@ -1,0 +1,30 @@
+#!/bin/bash
+#Author: John Ballen
+# Date Created:04-16-2021
+# Description: The scrpt run basic admin commands
+# Date Modified: 04-16-2021
+
+echo
+echo Please chose one of the options below
+echo
+echo 'a = Displaly Date and Time'
+echo 'b = List file and directories'
+echo 'c = List users logged in'
+echo 'd = Check System uptime'
+echo
+
+#read is the case, chosies is a variable
+	read choices
+	case $choices in
+
+a) date;;
+b) ls;;
+c) who;;
+d) uptime;;
+*) echo Ivalid choise - Bye
+
+
+	esac
+
+
+
