@@ -1,0 +1,8 @@
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: This script pull only error messages from /var/log/messages
+# Date Modified: 04-19-2021
+
+# grep for filter, -i ignore uper casse letters, path
+
+grep -i error /home/john/Professional-Scripts/messages
