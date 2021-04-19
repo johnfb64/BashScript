@@ -1,0 +1,23 @@
+0 = Ok or successful
+1 = Minor problem
+2 = Serious trouble
+3 - 255 Everything else
+
+when you finalize to run a command in cli, you can check de status of this proccess or program, with:
+
+echo $?
+
+ Command outputs Example
+ 
+[john@TestCenTos BashScript]$ echo $?
+0
+[john@TestCenTos BashScript]$ pwdd
+-bash: pwdd: command not found
+[john@TestCenTos BashScript]$ echo $?
+127  -------> Error code about pwdd
+[john@TestCenTos BashScript]$0 = Ok or successful
+1 = Minor problem
+2 = Serious trouble
+3 - 255 Everything else
+
+
