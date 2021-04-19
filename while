@@ -1,0 +1,25 @@
+#!/bin/bash
+count=0
+num=10
+#count -lt = count less then 10
+while [ $count -lt 10 ]
+do
+	echo
+
+	#in this case $1 will be the name of the process or process ID entered after running the script. 
+	#e.g. script-dowhile 25046 
+
+	echo $num seconds left to stop this process $1
+	echo
+	
+	#Sleep define 	
+
+	sleep 1
+
+#Be carefully with the spaces, eg. $num - 1. Not $num-1..
+num=`expr $num - 1`
+count=`expr $count + 1`
+done
+echo
+echo $1 process is stopeed!!!
+echo
