@@ -1,0 +1,11 @@
+#!/bin/bash
+for i in 1 2 3 4 5
+do
+echo "Welcome $i times"
+done
+
+#!/bin/bash
+#for i in eat run jump play
+#do
+#echo See John $i
+#done
