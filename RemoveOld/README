@@ -5,3 +5,39 @@ touch  -d "Fri, 6 Jun 2014 12:30:00" a
 The command below find all files with more than 90 days:
 
 find /home/john/GIT/BashScript/RemoveOld/ -mtime +90 -exec ls -l {} \;
+
+The command below find a patern between all files:
+
+find . -iname "*(J)*"
+
+or 
+
+find . -iname "*Mario*"
+
+whit type:
+
+find . -iname "*.nes"
+
+Another commands:
+
+file:
+
+find /etc -type f -name “*.conf” > conf_search
+
+size:
+
+find / -size +1000MB
+
+
+
+
+    c – bytes
+
+    k – Kilobytes
+
+    M – Megabytes
+
+    G – Gigabytes
+
+    b – 512-byte blocks
+
