@@ -1,0 +1,1 @@
+This script get the backups from /var and /etc filesystems. First compress in tar, then in gz. After that, the script send the backup to another linux server location. The script has an IF sentences in order to report de backup status. 

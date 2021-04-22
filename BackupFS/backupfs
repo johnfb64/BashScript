@@ -1,0 +1,26 @@
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: The script create a backup of filesystem, in this case /var and /etc
+# Date Modified: 04-22-2021
+
+#Put here your path backup
+tar cvf /tmp/backup.tar /etc /var
+
+#compress in gz.
+gzip /tmp/backup.tar
+
+#mtime -1: Create today. --and the output doesn't show results on screen
+find /tmp/backup.tar.gz -mtime -1 -type f -print &> /dev/null
+
+#If the results are Ok or not, show me the result message.
+
+if [ $? -eq 0 ]
+	then
+	echo Backup was created
+	echo
+	#Send to any location
+	echo Archiving Backup
+	scp /tmp/backup.tar.gz john@192.168.0.110:/home/john/Compartidas/Disk_1/TestBackup
+	else
+	echo Backup Failed
+fi 
