@@ -1,0 +1,13 @@
+ABOUT FIND:
+
+If you want to search a file with a certain partern between the character chain:
+
+sudo find . -iname "*Super Mario Bros*"
+
+If you want to filter more details with grep:
+
+sudo find . -iname "*Super Mario Bros*" -exec grep Hack {} \
+
+And if you want filer with grep and remove files (double -exec):
+
+sudo find . -iname "*Super Mario Bros*" -exec grep Hack {} \; -exec rm {} \;
