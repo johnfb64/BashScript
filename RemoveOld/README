@@ -1,0 +1,7 @@
+The following command create a file with date changed:
+
+touch  -d "Fri, 6 Jun 2014 12:30:00" a
+
+The command below find all files with more than 90 days:
+
+find /home/john/GIT/BashScript/RemoveOld/ -mtime +90 -exec ls -l {} \;

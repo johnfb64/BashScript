@@ -1,0 +1,9 @@
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: The script delete files older than 90 days. 
+# Date Modified: 04-21-2021
+
+find /home/john/GIT/BashScript/RemoveOld/ -mtime +90 -exec ls -l {} \;
+echo Rename.... 
+#This command rename with old extension:
+find /home/john/GIT/BashScript/RemoveOld -mtime +90 -exec mv {} {}.old \;
