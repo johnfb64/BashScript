@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: Script for Create Multiple files
+# Date Modified: 04-22-2021
+
+echo How many files do you want?
+read t
+
+echo Please enter the start name of the files?
+read n
+
+#seq works with letters and numbers too.. From 1 to user variable
+for i in $(seq 1 $t)
+do
+	touch $n.$i
+done
+

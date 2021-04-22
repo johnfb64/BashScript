@@ -1,0 +1,15 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: Loop Script
+# Date Modified: 04-22-2021
+
+
+for i in {1..20}
+do
+	echo $i
+#Read one letter and sleep 1 second
+	sleep 1
+done
+
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: Script for Create Multiple files
+# Date Modified: 04-22-2021
+
+for i in {1..10}
+do
+	touch Example.$i
+done

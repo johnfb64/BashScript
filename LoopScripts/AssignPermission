@@ -1,0 +1,19 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: Assign Permissions
+# Date Modified: 04-22-2021
+
+total=`ls -l Example* | wc -l`
+
+echo It will take $total seconds to assing permissions.
+
+for i in Example.*
+
+do
+	echo Assgin write permissions to $i
+	chmod a+x $i
+	sleep 1
+done
+
+
