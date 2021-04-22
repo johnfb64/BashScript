@@ -2,6 +2,7 @@ ABOUT FIND:
 
 If you want to search a file with a certain partern between the character chain:
 
+#iname = case insensitive
 sudo find . -iname "*Super Mario Bros*"
 
 If you want to filter more details with grep:
