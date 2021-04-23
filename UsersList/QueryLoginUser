@@ -1,0 +1,26 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: List Users with input user 
+# Date Modified: 04-23-2021
+
+echo
+echo ----Check Calendar-----
+echo
+cal
+echo -------------------Login Query User-----------------------
+echo
+echo "Please, enter the day (e.g. Mon)"
+read d
+echo
+echo "Please, enter month (e.g. Aug)"
+read m
+echo
+echo "Please enter date (e.g. 28)"
+read da
+
+last | grep "$d $m $da"
+
+
+
+echo ----------------------------------------------------------

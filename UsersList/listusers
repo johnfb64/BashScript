@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: List Users with login today 
+# Date Modified: 04-23-2021
+echo
+echo -------------------Users with login today-----------------
+today=`date | awk '{print $1,$2,$3}'`
+last | grep "$today"
+echo ----------------------------------------------------------
