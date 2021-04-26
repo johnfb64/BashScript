@@ -1,0 +1,31 @@
+Script logtracer --------------------------------------------------------------------------
+
+You can find different messages on /var/log/messages throug the following sentence:
+
+"refused|invalid|error|fail|lost|shut|down|offline"
+
+That is useful in order to find error messages. You can change the word and the file in order to find derterminate patern in a file. 
+
+Script 
+
+logger command ----------------------------------------------------------------------------
+
+With logger command, you can write into the logs.. 
+
+logger -t error "Test entry"
+
+This command record the logs with an entry error with the message Test entry.
+
+nohup command -----------------------------------------------------------------------------
+
+Nohup, short for no hang up is a command in Linux systems that keep processes running even after exiting the shell or terminal.
+
+Nohup PREVENTS the processes or jobs from receiving the SIGHUP (Signal Hang UP) signal. This is a signal that is sent to a process upon closing or exiting the terminal. In this guide, we take a look at the nohup command and demonstrate how it can be used.
+
+Examples:
+
+#nohup /root/logtail &
+$nohup ./myscript.sh &
+
+
+

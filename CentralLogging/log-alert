@@ -1,0 +1,21 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-26-2021
+# Description: The scrpt send email with var/logs/message alarms
+# ***Need mail server***
+# Date Modified: 04-26-2021
+
+IT="john.ballen@gmail.com"
+
+if [ -s /tmp/filtered-messages ]
+	then
+	cat /tmp/filtered-messages | sort | uniq | mail -s "syslog mesage" $IT
+	rm /tmp/filtered-messages
+	else
+	fi
+
+
+
+
+
+

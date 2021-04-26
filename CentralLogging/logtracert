@@ -1,0 +1,24 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-23-2021
+# Description: Trace Loging
+# Date Modified: 04-23-2021
+
+#f= check file in real time
+#n0 only looking forwar for the last messages - line 0
+#while= save the last line in $line with a while 
+
+tail -fn0 /var/log/messages | while read line
+do
+
+#$line take the value of each line from the last grep 
+#egrep = command can use multiple keywords or filteers with -i | PATTERNS are extended regular expressions
+
+echo $line | egrep -i "refused|invalid|error|fail|lost|shut|down|offline"
+	if [ $? = 0 ]
+	then
+	echo $line >> /tmp/filtered-messages
+	fi
+done
+
+
