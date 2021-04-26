@@ -1,0 +1,57 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-26-2021
+# Description: Create User
+# Date Modified: 04-26-2021
+
+echo "Provide a username?"
+read u
+echo
+
+#-q hidden mode. Don't show output on screen. 
+grep -q $u /etc/passwd
+	if [ $? -eq 0 ]
+	then
+	echo ERROR - User $u already exists. 
+	echo Please choose another username
+	echo
+	exit 0
+	fi
+
+echo "Please provide user description: "
+read d
+echo
+
+echo "Do you want to specify user ID (y/n)?"
+read ynu
+echo
+
+#With letters use == || with numers use -eq.
+	if [ $ynu == y ]
+	then
+	echo "Please enter UID?"
+	read uid
+		#Validate UID
+		grep -q $uid /etc/passwd
+		if [ $? -eq 0 ]
+		then
+		echo ERROR -- UserID $uid already exists
+		echo
+		exit 0
+		else
+		#Create the user
+		useradd $u -c "$d" -u $uid
+		echo
+		echo $u account has been created
+		fi
+
+	elif [ $ynu == n ]
+	then
+	echo No worries, I will assign a UID
+	useradd $u -c "$d"
+	echo
+	echo $u account has been created
+	fi	
+
+
+
