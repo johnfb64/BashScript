@@ -1,0 +1,14 @@
+About usermod
+You can lock users with #usermod -L. It's recommended check de /etc/shadow and check the exclamation mark. 
+
+When the user is active, you wouldn't see exclamation marks. Check test123.
+When The user never did login, you would see double exclamation mark: !! Check test345.
+When the user is locked, you can see one exclamatin mark: ! Check test567.
+
+/etc/passwd:
+test123:$6$WE0DXdUy$f4D300/cchugB/KE9s8/KmACp.aTq/DmeYNbSkUu7Xd38Y6DH3lic7wx1ltinbPqJCcHq3rrbRdDsDnxkw7C6.:18743:0:99999:7:::
+test345:!!:18743:0:99999:7:::
+test567:!$6$iD4/sDDN$C9qpiSjuNoOw8xIJeZaSjxwjOJb6zQUY67HdnqCyA/VEOMcuUa3U.Ro8xH52kpQw/.0a9pYzS1UgAMijv7vqT.:18743:0:99999:7:::
+
+
+

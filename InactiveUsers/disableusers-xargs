@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-26-2021
+# Description: This script manage users
+# Date Modified: 04-26-2021
+
+
+lastlog | tail -n+2 | grep 'test' | awk '{print $1}' | xargs -I{} usermod -L {}
+
+
