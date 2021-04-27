@@ -1,0 +1,20 @@
+The following command extract from df -h the porcentage number with the following filters
+
+- egrep = put off tmpfs|devtmpfs
+- awk = print the fifth column 
+- cut = put off the % symbol and indicate the filed with -f. 
+
+df -h | egrep -v "tmpfs|devtmpfs" | awk '{print $5}' | cut -d'%' -f1
+
+The result is only the number of the availabitlity porcent.
+
+---------------WITH AWK------------------------
+
+The following command filter disks with 10GB or more of df -h with awk mainly. 
+
+df -h | awk '0+$5 >= 10 {print}'
+
+
+
+
+

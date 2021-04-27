@@ -1,0 +1,14 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-27-2021
+# Description: This script check disk space status
+# Date Modified: 04-27-2021
+
+echo 
+echo Following disk is the disk space status:
+echo 
+df | awk '0+$5 >= 10 {print}' | awk '{print $5,$6}'
+
+
+
+
