@@ -1,0 +1,5 @@
+How to create x files with a command:
+
+awk 'BEGIN { for (i=1;i<=20;i++)print "file"i }' | xargs -i touch {}.txt
+
+

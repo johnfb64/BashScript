@@ -1,0 +1,19 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-27-2021
+# Description: This script check file changes
+# Date Modified: 04-27-2021
+
+
+
+a=`ls -l  file* | wc -l`
+
+if [ $a -eq 20 ]
+	then
+	echo Yes, there are $a files
+	else
+	echo No, Files are different to 20
+	fi
+
+
+
