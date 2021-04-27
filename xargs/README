@@ -1,0 +1,11 @@
+With xargs you can take a paramter or output command and pass to the other command through a pipe.. 
+
+Example:
+
+printf "1\n2\n3\n" | xargs -i touch {}.txt
+
+1. This command print 3 resulsts in order list.
+2. touch create the files.   
+2. Xargs take the printf outputs and put on {}. with the -i parameter, change the file extension. 
+
+

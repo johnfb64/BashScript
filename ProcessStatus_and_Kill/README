@@ -1,0 +1,25 @@
+HOW TO CREATE DUMMY PROCESS
+
+-  Command: 
+
+$ sleep 600
+
+  
+You can use the sleep command. Sleep command is used to delay for a fixed amount of time during the execution of any script.
+
+After that you can check the process:
+
+ps -fea | grep "sleep 600"
+
+or
+
+ps -fea | grep "sleep 600" | grep -v grep | awk '{print $2}' | xargs -I{} echo {} 
+
+Then, you can kill the process
+
+ps -fea | grep "sleep 600" | grep -v grep | awk '{print $2}' | xargs -I{} kill {}
+
+* -v grep = filter the query process "ps -fea | grep sleep"
+* aws '{print $2}' = Only take the second column of the output, in the case of command ps -fea is the ID of the process. 
+* xargs -I = pass parameters to kill, in this case the ID process. 
+
