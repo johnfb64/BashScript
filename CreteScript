@@ -1,0 +1,28 @@
+#!/bin/bash
+read -r -p "Enter name of the script: " script
+read -r -p "What's your fullename: " fname
+read -r -p "What's the description of this script: " description
+
+folder=$script"_dir"
+mkdir $folder
+sleep 2
+a=`echo /home/john/GIT/BashScript/"$folder"/"$script"`
+echo $a
+
+echo "#!/bin/bash!" >> $a 
+echo
+echo "########################################################" >> $a
+echo 
+echo "#Author: " $fname >> $a
+echo
+echo "#Date: " $(date) >> $a
+echo
+echo "#Description: " $description >> $a
+echo
+echo "#Modified: " $(date) >> $a
+echo
+echo "########################################################" >> $a
+echo
+chmod a+x $a
+vi $a
+
