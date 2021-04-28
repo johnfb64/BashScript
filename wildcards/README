@@ -1,0 +1,20 @@
+* - represents zero or more characters
+? - represents a single character. | example: text = te?t. ? remplaces the x. 
+[] - represents a single characters
+
+If you want to create ten files with a only command, you can execute a command with []:
+
+touch abcd{1..10}-xyz.txt
+
+This command will create ten files like:
+-rw-r--r-- 1 john john 0 Apr 28 09:53 abcd9-xyz.txt
+-rw-r--r-- 1 john john 0 Apr 28 09:53 abcd8-xyz.txt
+-rw-r--r-- 1 john john 0 Apr 28 09:53 abcd7-xyz.txt
+-rw-r--r-- 1 john john 0 Apr 28 09:53 abcd1-xyz.txt
+
+
+
+
+
+
+
