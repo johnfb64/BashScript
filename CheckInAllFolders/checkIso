@@ -1,0 +1,16 @@
+##!/bin/bash
+
+#Format Type
+#format = *.iso
+
+cd /home/john/Compartidas/Disk_3/torrent
+for d in */
+do
+        cd /home/john/Compartidas/Disk_3/torrent/"$d"/
+        #Path of destiny
+        mv *.iso /home/john/Compartidas/Disk_3/Imagenes/ 
+		if [ $? -eq 0 ]
+			then
+			echo Copied ISO Image - $(date) >> /home/john/Scripts/logCheckIso.txt
+		fi	
+done
