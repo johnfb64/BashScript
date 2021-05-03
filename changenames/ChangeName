@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-22-2021
+# Description: This script will rename files endign with .txt
+# Date Modified: 04-22-2021
+
+#put here the path of your files:
+cd ~/Compartidas/Disk/folder
+for num in {1..20}
+do
+	mv File.that.you.need.1x${num}.HDTV.Xvid.Mp3.[4].[SBT].avi Example_${num}.avi
+done
+
