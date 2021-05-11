@@ -1,0 +1,24 @@
+#!/bin/bash
+# Author: John Ballen
+# Date Created:04-27-2021
+# Description: This script check disk space status
+# Date Modified: 04-27-2021
+
+
+#Check readme!
+
+a=`df -h | egrep -v "tmpfs|devtmpfs" | tail -n+2 | awk '{print $5}' | cut -d'%' -f1`
+
+for i in $a
+do	
+	#-ge = greater than...
+	if [ $i -ge 10 ]
+	then
+	echo Check disk space in $i% - `df -h | grep $i | awk '{print $1}'` on $(hostname) as on $(date)
+	else
+	echo Disk OK. 
+	fi
+done
+
+
+
