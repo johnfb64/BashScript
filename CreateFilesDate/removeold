@@ -1,0 +1,20 @@
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: The script delete files older than 90 days. 
+# Date Modified: 04-21-2021
+
+#find /home/john/GIT/BashScript/RemoveOld/ -mtime +90 -exec ls -l {} \;
+day=$(date +%Y%m%d_%H%M)
+touch deletedfiles_"${day}".log
+
+echo -------------------------------------------------------------- >> deletedfiles_"${day}".log
+echo >> deletedfiles_"${day}".log
+date >> deletedfiles_"${day}".log
+echo >> deletedfiles_"${day}".log
+echo Deleting Files... >> deletedfiles_"${day}".log
+find /home/john/Dummy_logs -mtime +90 -exec ls {} \; >> deletedfiles_"${day}".log
+find /home/john/Dummy_logs -mtime +90 -exec rm {} \; 
+echo >> deletedfiles_"${day}".log
+echo -------------------------------------------------------------- >> deletedfiles_"${day}".log
+
+#find /home/john/Dummy_logs -mtime +90 -exec rm {} \;
