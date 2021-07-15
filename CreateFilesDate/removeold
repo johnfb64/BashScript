@@ -12,8 +12,8 @@ echo >> deletedfiles_"${day}".log
 date >> deletedfiles_"${day}".log
 echo >> deletedfiles_"${day}".log
 echo Deleting Files... >> deletedfiles_"${day}".log
-find /home/john/Dummy_logs -mtime +90 -exec ls {} \; >> deletedfiles_"${day}".log
-find /home/john/Dummy_logs -mtime +90 -exec rm {} \; 
+find /home/john/Dummy_logs -mtime +1 -exec ls {} \; >> deletedfiles_"${day}".log
+find /home/john/Dummy_logs -mtime +1 -exec rm {} \; 
 echo >> deletedfiles_"${day}".log
 echo -------------------------------------------------------------- >> deletedfiles_"${day}".log
 
