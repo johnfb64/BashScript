@@ -1,0 +1,29 @@
+#!/bin/bash
+#Put in this path  your white or blacklist
+lista="/home/xxxx/xxxxx/facebook.txt"
+echo
+echo Enter an  option
+echo
+echo 'w = Allow Facebook'
+echo 'b = Block facebook'
+echo
+        read choices
+        case $choices in
+w)
+for list in $(cat $lista)
+do
+        pihole -w $list
+done
+;;
+
+b)
+for list in $(cat $lista)
+do
+        pihole -b $list
+done
+;;
+
+*)echo Invalid option  - Adios
+
+        esac
+
