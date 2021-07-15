@@ -1,0 +1,21 @@
+# Author: John Ballen
+# Date Created:04-16-2021
+# Description: The script delete files older than 90 days. 
+# Date Modified: 04-21-2021
+
+echo "----------------------log $(date +%d-%m-%Y) -------------------------" >>/home/john/GIT/BashScript/RemoveFolderOld/log.txt
+ls -lrt >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+
+mv /home/john/GIT/BashScript/RemoveFolderOld/$(date +%d-%m-%Y) Standby 
+	if [ $? -eq 0 ]
+	then
+	echo "the folder $(date +%d-%m-%Y) was processed OK." >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+	rm -R /home/john/GIT/BashScript/RemoveFolderOld/*$(date +%Y)*
+	echo "the past folders was deleted OK." >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+	mv Standby $(date +%d-%m-%Y)
+	echo "Today, the folder preserved is:" >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+	ls >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+	else	
+	echo "Sometihg was wrong! No such file or directory" >> /home/john/GIT/BashScript/RemoveFolderOld/log.txt
+	fi
+
