@@ -32,46 +32,28 @@ umount -l /dev/sdb3 /home/john/Share/Disk1
 sleep 5
 
 mount /dev/sdb1 /home/john/Share/Disk2
-        if [ $? -eq 0 ]
+	if [ $? -eq 0 ]
+	then
+	echo "OK"
+	exit 0
+	else
+	sudo mount /dev/sda1 /home/john/Share/Disk2
+	fi
+	
+mount /dev/sdb2 /home/john/Share/Disk3
+	if [ $? -eq 0 ]
         then
         echo "OK"
         exit 0
         else
-        mount /dev/sda1 /home/john/Share/Disk2
+	sudo mount /dev/sda2 /home/john/Share/Disk3
+	fi
+mount /dev/sdb3 /home/john/Share/Disk1
 	if [ $? -eq 0 ]
-	then
-        echo "OK"
+        then
+	echo "OK"
 	exit 0
-	else 
-	mount /dev/sdc1 /home/john/Share/Disk2
+        else
+	sudo mount /dev/sda3 /home/john/Share/Disk1
         fi
 
-mount /dev/sdb2 /home/john/Share/Disk3
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        mount /dev/sda2 /home/john/Share/Disk3
-	if [ $? -eq 0 ]
-	then
-        echo "OK"
-	exit 0
-	else 
-	mount /dev/sdc2 /home/john/Share/Disk3
-        fi
-		
-mount /dev/sdb3 /home/john/Share/Disk1
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        mount /dev/sda3 /home/john/Share/Disk1
-	if [ $? -eq 0 ]
-	then
-        echo "OK"
-	exit 0
-	else 
-	mount /dev/sdc3 /home/john/Share/Disk1
-        fi
