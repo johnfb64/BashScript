@@ -1,77 +1,9 @@
-# Author: John Ballen
-# Date Created:04-16-2021
-# Description: The scrpt run basic admin commands
-# Date Modified: 04-16-2021
+#!/bin/bash
 
-umount -l /dev/sdb1 /home/john/Share/Disk2
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        sudo umount -l /dev/sda1 /home/john/Share/Disk2
-        fi
+lsblk | grep sda1 | awk '{print "umount -f "$7 " /home/john/shared/Disk_1/"}' |sh
+lsblk | grep sda2 | awk '{print "umount -f "$7 " /home/john/shared/Disk_2/"}' |sh
+lsblk | grep sda3 | awk '{print "umount -f "$7 " /home/john/shared/Disk_3/"}' |sh
 
-umount -l /dev/sdb2 /home/john/Share/Disk3
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        sudo umount -l /dev/sda2 /home/john/Share/Disk3
-        fi
-umount -l /dev/sdb3 /home/john/Share/Disk1
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        sudo umount -l /dev/sda3 /home/john/Share/Disk1
-        fi
-
-sleep 5
-
-mount /dev/sdb1 /home/john/Share/Disk2
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        mount /dev/sda1 /home/john/Share/Disk2
-	if [ $? -eq 0 ]
-	then
-        echo "OK"
-	exit 0
-	else 
-	mount /dev/sdc1 /home/john/Share/Disk2
-        fi
-
-mount /dev/sdb2 /home/john/Share/Disk3
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        mount /dev/sda2 /home/john/Share/Disk3
-	if [ $? -eq 0 ]
-	then
-        echo "OK"
-	exit 0
-	else 
-	mount /dev/sdc2 /home/john/Share/Disk3
-        fi
-		
-mount /dev/sdb3 /home/john/Share/Disk1
-        if [ $? -eq 0 ]
-        then
-        echo "OK"
-        exit 0
-        else
-        mount /dev/sda3 /home/john/Share/Disk1
-	if [ $? -eq 0 ]
-	then
-        echo "OK"
-	exit 0
-	else 
-	mount /dev/sdc3 /home/john/Share/Disk1
-        fi
+lsblk | grep sda1 | awk '{print "mount "$7 " /home/john/shared/Disk_1/"}' |sh
+lsblk | grep sda2 | awk '{print "mount "$7 " /home/john/shared/Disk_2/"}' |sh
+lsblk | grep sda3 | awk '{print "mount "$7 " /home/john/shared/Disk_3/"}' |sh
