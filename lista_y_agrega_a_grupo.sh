@@ -5,6 +5,7 @@
 cut -f1,4 -d: /etc/passwd | grep 1001 | rev | cut -c 6-15 | rev >> /root/Documents/usuarios.txt
 while read -ra line; do
 #-w = pide devolver valor exacto.
+#awk -v toma el valor de la variable puesta, en este caso line que es la del bucle
    ls -lrt /dev/ | grep -w "ttyS1" | awk -v linea="$line" '{print "usermod -G " $4 " " linea}'|sh
 done < usuarios.txt
 rm usuarios.txt
