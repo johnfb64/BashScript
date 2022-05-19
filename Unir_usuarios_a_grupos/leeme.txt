@@ -1,0 +1,3 @@
+Solo se debe ejecutar el archivo paso_a_server.sh.
+Modifique el archivo de servidores con las ip que desea trabajar. 
+Ejecute!

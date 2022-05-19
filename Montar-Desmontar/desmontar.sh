@@ -1,8 +1,5 @@
-# Author: John Ballen
-# Date Created:04-16-2021
-# Description: The scrpt run basic admin commands
-# Date Modified: 04-16-2021
+#!/bin/bash
 
-sudo umount -f /dev/sda1
-sudo umount -f /dev/sda2
-sudo umount -f /dev/sda3
+lsblk | grep sda1 | awk '{print "umount -f "$7 " /home/john/shared/Disk_1/"}' |sh
+lsblk | grep sda2 | awk '{print "umount -f "$7 " /home/john/shared/Disk_2/"}' |sh
+lsblk | grep sda3 | awk '{print "umount -f "$7 " /home/john/shared/Disk_3/"}' |sh
