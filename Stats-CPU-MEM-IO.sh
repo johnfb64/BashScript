@@ -25,7 +25,7 @@ do
   COUNT=$((COUNT + PROC))
 done
 #echo $COUNT
-AVG=$((COUNT /32))
+AVG=$((COUNT / CPU_CANT))
 echo "$host,AVG_CPU,$fecha,$AVG" >> $BATCH01_LOG
 
 ###########################MEMORIA############################
