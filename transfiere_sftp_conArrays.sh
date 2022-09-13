@@ -1,17 +1,19 @@
 #!/bin/bash
 #####################################################################
-# HECHO POR JOHN BALLEN                                             #
+# SCRIPT PARA TRANSFERENCIA DE ARCHIVOS DE BATMAN HACIA CARVAJAL    #
+# AUTOR: INFRAESTRUCTURA LINUX                                      #
+# FECHA: 12-09-2022                                                 #
 #####################################################################
 
 
 echo "############# EXTRAE ARCHIVOS SCP #################"
 ########## VARIABLES ##########################################
 DATE=`date '+%d-%m-%Y,%H:%M'`
-LOG="/home/ruta/logs/Trae_archivos_sftp_.log"
-HOST="NOMBRE@USUARIO DE SFTP"
-PWD="El_password"
-FOLDERINSUMO="/home/ruta/TOT_AVISO/PROC_FILE"
-ARCHIVO="/home/ruta/TOT_AVISO/PROC_FILE/*.TXT"
+LOG="/home/carvajal/logs/Trae_archivos_sftp_.log"
+HOST="                   "
+PWD="                     "
+FOLDERINSUMO="/home/carvajal/TOT_AVISO/PROC_FILE"
+ARCHIVO="/home/carvajal/TOT_AVISO/PROC_FILE/*.TXT"
 DESTINO="/DESADV/OUT"
 #DESTINO="/"
 FORMAT="HSE"
@@ -25,16 +27,15 @@ RUTA_REMOTO="/reportes/CKPR/avides/"
 sshpass -p $PWD sftp -F /dev/null -o PreferredAuthentications=password $HOST<<EOF
 cd $DESTINO
 lcd $FOLDERINSUMO
-get *HSE*
+get *$FORMAT*
 bye
 EOF
 
-#esta es la magia de los ARRAYS - ARRAY
 lista=($(ls -ltr $FOLDERINSUMO| awk '{print $9}'))
-NUM=`ls -ltr | wc -l`
+
+NUM=`ls -ltr $FOLDERINSUMO | wc -l`
 for i in $(seq 0 $NUM);do
    echo ${lista[i]}
-
 sshpass -p $PWD sftp -F /dev/null -o PreferredAuthentications=password $HOST<<EOF
 cd $DESTINO
 rm ${lista[i]}
@@ -51,16 +52,16 @@ else
    #Crea TOT_AVISO.TXT
    cd $FOLDERINSUMO
    #ESPECIFICAR ARCHIVO TOT_TXT.
-   ls -ltr | grep HSE | awk '{print "cat "$9">>/home/ruta/TOT_AVISO/PROC_FILE/TEST_AVISO.TXT"}' |sh
+   ls -ltr | grep $FORMAT | awk '{print "cat "$9">>/home/carvajal/TOT_AVISO/PROC_FILE/TEST_AVISO.TXT"}' |sh
    if [ $? -eq 0 ]
    then
-      #Elimina HSE
-       rm -f $FOLDERINSUMO/*.HSE
-      scp -pr $FOLDERINSUMO/$NFILE psoft85@10.181.0.77:$RUTA_REMOTO
-      if [ $? -eq 0 ]
-      then
+      #Elimina $FORMAT
+       rm -f $FOLDERINSUMO/*.$FORMAT
+       scp -pr $FOLDERINSUMO/$NFILE psoft85@10.181.0.77:$RUTA_REMOTO
+       if [ $? -eq 0 ]
+       then
        echo "Archivo $NFILE enviado exitosamente, se procede a hacer backup - $DATE"|tee -a "$LOG"
-       BACKUP_TOTAVISO="$DATE-TOT_AVISO.TXT"
+       BACKUP_TOTAVISO="TOT_AVISO.TXT-$DATE"
        mv $NFILE $BACKUP_TOTAVISO
        scp -pr $FOLDERINSUMO/$BACKUP_TOTAVISO psoft85@10.181.0.77:$BCK
        if [ $? -eq 0 ]
@@ -76,7 +77,8 @@ else
        echo "Archivo TOT_AVISO.TXT no enviado - $DATE"|tee -a "$LOG"
        fi
    else
-      echo "no hay archivos TXT para enviar"
+      echo "no hay archivos TXT para enviar - $DATE"|tee -a "$LOG"
    fi
-   #Inicia transferencia
+
 fi
+
