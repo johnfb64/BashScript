@@ -10,13 +10,15 @@ echo "############# EXTRAE ARCHIVOS SCP #################"
 ########## VARIABLES ##########################################
 DATE=`date '+%d-%m-%Y,%H:%M'`
 LOG="/home/carvajal/logs/Trae_archivos_sftp_.log"
-HOST="                   "
-PWD="                     "
+HOST="1356@64.76.52.91"
+PWD="Col0#B1aN@deCO.A7k3t0"
 FOLDERINSUMO="/home/carvajal/TOT_AVISO/PROC_FILE"
 ARCHIVO="/home/carvajal/TOT_AVISO/PROC_FILE/*.TXT"
 DESTINO="/DESADV/OUT"
 #DESTINO="/"
-FORMAT="HSE"
+MAYUS="HSE"
+MINUS="hse"
+FORMAT=`expr $MAYUS - $MINUS`
 #No quitar hasta despues del test
 BCK="/reportes/CKPR/files/bckedicen/avides"
 NFILE="TEST_AVISO.TXT"
@@ -52,11 +54,12 @@ else
    #Crea TOT_AVISO.TXT
    cd $FOLDERINSUMO
    #ESPECIFICAR ARCHIVO TOT_TXT.
-   ls -ltr | grep $FORMAT | awk '{print "cat "$9">>/home/carvajal/TOT_AVISO/PROC_FILE/TEST_AVISO.TXT"}' |sh
+   ls -ltr | grep $MINUS | awk '{print "cat "$9">>/home/carvajal/TOT_AVISO/PROC_FILE/TEST_AVISO.TXT"}' |sh &&\
+   ls -ltr | grep $MAYUS | awk '{print "cat "$9">>/home/carvajal/TOT_AVISO/PROC_FILE/TEST_AVISO.TXT"}' |sh
    if [ $? -eq 0 ]
    then
       #Elimina $FORMAT
-       rm -f $FOLDERINSUMO/*.$FORMAT
+       rm -f $FOLDERINSUMO/*.$MAYUS && rm -f $FOLDERINSUMO/*.$MINUS
        scp -pr $FOLDERINSUMO/$NFILE psoft85@10.181.0.77:$RUTA_REMOTO
        if [ $? -eq 0 ]
        then
@@ -81,4 +84,5 @@ else
    fi
 
 fi
+
 
