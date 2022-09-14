@@ -10,8 +10,8 @@ echo "############# EXTRAE ARCHIVOS SCP #################"
 ########## VARIABLES ##########################################
 DATE=`date '+%d-%m-%Y,%H:%M'`
 LOG="/home/carvajal/logs/Trae_archivos_sftp_.log"
-HOST="1356@64.76.52.91"
-PWD="Col0#B1aN@deCO.A7k3t0"
+HOST=" "
+PWD=" "
 FOLDERINSUMO="/home/carvajal/TOT_AVISO/PROC_FILE"
 ARCHIVO="/home/carvajal/TOT_AVISO/PROC_FILE/*.TXT"
 DESTINO="/DESADV/OUT"
