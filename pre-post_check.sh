@@ -101,6 +101,6 @@ echo " "|tee -a "$LOG"
 echo "============================================" |tee -a "$LOG"
 echo "Se transfiere archivo de log a Thor..."
 echo "Ingrese la contraseña del root:"
-scp -pr $LOG root@10.181.0.174:/backup/john/log_precheck
+scp -pr $LOG root@IP_Servidor:/backup/john/log_precheck
 echo "Extraiga el archivo /tmp/precheck_log.txt o revise la ruta en thor, /backup/john/log_precheck"|tee -a "$LOG"
 echo "================ FIN  ==================" |tee -a "$LOG"
