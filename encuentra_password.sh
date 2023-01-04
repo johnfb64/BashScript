@@ -9,6 +9,16 @@ do
      echo "Encontrado!"
      echo " "
      echo "El pwd es: $line"
+     echo " "
+     echo "Generando relacion de confianza..."
+     sshpass -p $line ssh-copy-id -o StrictHostKeyChecking=no $IP
+       if [ $? -eq 0 ]
+       then
+         echo "Listo!. Intente acceder al servidor"
+       else
+         echo "Algo fue mal!. Intente manual con los datos encontrados."
+       fi
+
    else
      echo "Buscando..."
      sshpass -p $line ssh -o StrictHostKeyChecking=no tux@$IP hostname > /dev/null
